@@ -6,7 +6,8 @@
   :license "MIT License, see LICENSE.txt"
   :depends-on (#:quicklisp
                #:split-sequence
-               #:inferior-shell)
+               #:inferior-shell
+               #:clgplot)
   :serial t
   :components ((:file "package")
                (:file "ledgerplot-cl" :depends-on ("package"))

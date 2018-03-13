@@ -1,0 +1,8 @@
+== ledgerplot-cl
+
+=== Setup development environment
+
+==== clgplot
+
+Follow instructions on https://github.com/masatoi/clgplot +
+Installed into projects dir and added to ~/.sbclrc
