@@ -14,15 +14,31 @@
   "This function runs a shell command, via inferior-shell."
   (inferior-shell:run/ss `(inferior-shell:pipe (,a-command-pipe))))
 
+;;; Application specific functions.
+(defun usage ()
+  "Print usage info."
+  (format t "Usage: ledgerplot-cl \"path/to/ledger.dat\"~%~%")
+  (format t "Options:~%")
+  (format t "~4tpath/to/ledger.dat: main ledger.dat file to create charts for~%"))
+
+(defun process-ledger-file (a-ledger-file-str)
+  "Process ledger file, for creating charts."
+  ; TODO: the below is just a dummy example.
+  (defparameter *x-list* (loop for i from (- pi) to pi by 0.1 collect i))
+  (clgp:splot (lambda (x y) (+ (sin x) (cos y)))
+              *x-list* ; x
+              *x-list* ; y
+              :view-point '(20 45) :z-scale 1.5))
 
 (defun main ()
-  "Main entry point to the application."
-  (progn
-(defparameter *x-list* (loop for i from (- pi) to pi by 0.1 collect i))
-(clgp:splot (lambda (x y) (+ (sin x) (cos y)))
-  *x-list* ; x
-  *x-list* ; y
-  :view-point '(20 45) :z-scale 1.5)
-    (format t "TBD...")))
+  "Main code processing.
+Note: sbcl --noinform --script ledger.dat
+That makes for 4 arguments. But sbcl --noinform --script counts as 1 whole.
+So that leaves 2 arguments to be checked for..."
+  (cond
+    ((eq (length sb-ext:*posix-argv*) 2)
+      (process-ledger-file (nth 1 sb-ext:*posix-argv*)))
+    (T (usage))))
 
+;;; Main entry point, to start the code.
 (main)
