@@ -1,8 +1,7 @@
-== ledgerplot-cl
+= Script source
 
-=== Setup development environment
+Found at the following location:
+https://www.sundialdreams.com/report-scripts-for-ledger-cli-with-gnuplot/
 
-==== clgplot
-
-Follow instructions on https://github.com/masatoi/clgplot +
-Installed into projects dir and added to ~/.sbclrc
+yearly_income_vs_expenses works.
+Now fix the rest + use code in ledgerplot-cl.
