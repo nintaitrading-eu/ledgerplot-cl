@@ -4,6 +4,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Global variables
+
 (defparameter clgp:*gnuplot-path* "gnuplot")
 (defparameter clgp:*tmp-dat-file* "/tmp/clgplot-tmp.dat")
 (defparameter clgp:*tmp-gp-file* "/tmp/clgplot-tmp.gp")
@@ -15,6 +16,7 @@
   (inferior-shell:run/ss `(inferior-shell:pipe (,a-command-pipe))))
 
 ;;; Application specific functions.
+
 (defun usage ()
   "Print usage info."
   (format t "Usage: ledgerplot-cl \"path/to/ledger.dat\"~%~%")
@@ -56,4 +58,5 @@ So that leaves 2 arguments to be checked for..."
     (T (usage))))
 
 ;;; Main entry point, to start the code.
+
 (main)
