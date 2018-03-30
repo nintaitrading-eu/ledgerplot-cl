@@ -11,6 +11,7 @@
 	       #:utils-cl)
   :serial t
   :components ((:file "package")
-               (:file "ledgerplot-cl" :depends-on ("package"))
+               (:file "plots/income-vs-expenses")
+               (:file "ledgerplot-cl" :depends-on ("package" "plots/income-vs-expenses"))
                ))
 
