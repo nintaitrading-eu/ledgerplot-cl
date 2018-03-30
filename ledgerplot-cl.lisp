@@ -10,10 +10,7 @@
 (defparameter clgp:*tmp-gp-file* "/tmp/clgplot-tmp.gp")
 
 ;;; Functions
-
-(defun run-command (a-command-pipe)
-  "This function runs a shell command, via inferior-shell."
-  (inferior-shell:run/ss `(inferior-shell:pipe (,a-command-pipe))))
+; Nothing here for now
 
 ;;; Application specific functions.
 

@@ -7,7 +7,8 @@
   :depends-on (#:quicklisp
                #:split-sequence
                #:inferior-shell
-               #:clgplot)
+               #:clgplot
+	       #:utils-cl)
   :serial t
   :components ((:file "package")
                (:file "ledgerplot-cl" :depends-on ("package"))
