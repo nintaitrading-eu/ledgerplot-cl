@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; ledgerplot-cl.lisp:
+;;;; ledgerplot.lisp:
 ;;;; Chart plotting application for ledger-cli data.
 ;;;;
 ;;;; See LICENSE.txt for license information.
@@ -18,14 +18,14 @@
 
 (defun usage ()
   "Print usage info."
-  (format t "Usage: ledgerplot-cl \"path/to/ledger.dat\"~%~%")
+  (format t "Usage: ledgerplot \"path/to/ledger.dat\"~%~%")
   (format t "Options:~%")
   (format t "~4tpath/to/ledger.dat: main ledger.dat file to create charts for~%"))
 
 (defun process-ledger-file (a-ledger-file-str)
   "Process ledger file, for creating charts."
   ; TODO: Add other charts.
-  (ledgerplot-cl::plot-income-vs-expenses))
+  (ledgerplot::plot-income-vs-expenses))
 
 (defun main ()
   "Main code processing.

@@ -1,9 +1,9 @@
-# ledgerplot-cl
+# ledgerplot
 # See LICENSE file for copyright and license details.
 
 # Usage:
 # ------
-# make ledgerplot-cl
+# make ledgerplot
 # As root: make install
 # make clean
 # To remove:
@@ -11,14 +11,14 @@
 
 include config.mk
 
-SRC = ledgerplot-cl.lisp ledgerplot-cl.asd package.lisp
-TARGET = ledgerplot-cl
+SRC = ledgerplot.lisp ledgerplot.asd package.lisp
+TARGET = ledgerplot
 BUILDOPTS = --noinform --eval '(ql:quickload "${TARGET}")' --eval '(sb-ext:save-lisp-and-die "${TARGET}" :toplevel \#'\''main :executable t)'
 
 all: options ${TARGET}
 
 options:
-	@echo ledgerplot-cl build options:
+	@echo ledgerplot build options:
 	@echo ${BUILDOPTS}
 
 $(TARGET):

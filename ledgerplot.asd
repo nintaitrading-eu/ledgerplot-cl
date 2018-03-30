@@ -1,6 +1,6 @@
-;;;; ledgerplot-cl.asd
+;;;; ledgerplot.asd
 
-(asdf:defsystem #:ledgerplot-cl
+(asdf:defsystem #:ledgerplot
   :description "Common lisp application to create charts from ledger data."
   :author "Andy Nagels"
   :license "MIT License, see LICENSE.txt"
@@ -12,6 +12,6 @@
   :serial t
   :components ((:file "package")
                (:file "plots/income-vs-expenses")
-               (:file "ledgerplot-cl" :depends-on ("package" "plots/income-vs-expenses"))
+               (:file "ledgerplot" :depends-on ("package" "plots/income-vs-expenses"))
                ))
 

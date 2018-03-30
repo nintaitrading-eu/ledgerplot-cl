@@ -5,7 +5,7 @@
 ;;;; See LICENSE.txt for license information.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(in-package :ledgerplot-cl)
+(in-package :ledgerplot)
 
 (defun plot-income-vs-expenses ()
   "Plot income-vs-expenses."

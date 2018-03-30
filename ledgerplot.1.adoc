@@ -2,21 +2,21 @@
 :doctype: manpage
 
 == NAME
-ledgerplot-cl - an application, written in Common Lisp for creating charts, based on ledger data.
+ledgerplot - an application, written in Common Lisp for creating charts, based on ledger data.
 
 == SYNOPSIS
-Installed version: ledgerplot-cl-VERSION +
+Installed version: ledgerplot-VERSION +
 
-Installed as: *ledgerplot-cl*
+Installed as: *ledgerplot*
 
 == DEPENDS ON
 Needs Common Lisp to build. SBCL is preferred.
 
 == DESCRIPTION
-ledgerplot-cl is an application, that can display charts for ledger data.
+ledgerplot is an application, that can display charts for ledger data.
 
 == USAGE
-ledgerplot-cl
+ledgerplot
 
 == SEE ALSO
 N/A

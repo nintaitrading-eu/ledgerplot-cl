@@ -1,7 +1,6 @@
 ;;;; package.lisp
 
-(defpackage #:ledgerplot-cl
+(defpackage #:ledgerplot
   (:use #:cl)
-  (:export #:main
-           #:my-getenv))
-(in-package :ledgerplot-cl)
+  (:export #:main))
+(in-package :ledgerplot)

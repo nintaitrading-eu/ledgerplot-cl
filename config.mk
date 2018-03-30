@@ -1,4 +1,4 @@
-# ledgerplot-cl version
+# ledgerplot version
 VERSION = 0.1.0
 
 # Customize below to fit your system
