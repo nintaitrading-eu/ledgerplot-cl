@@ -15,5 +15,6 @@
 *.sx32fsl
 *.wx64fsl
 *.wx32fsl
-ledgerplot-cl
 ledger_examplescripts
+system-index.txt
+ledgerplot
