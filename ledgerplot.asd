@@ -7,8 +7,8 @@
   :depends-on (#:quicklisp
                #:split-sequence
                #:inferior-shell
-               #:clgplot
-	       #:utils-cl)
+               #:eazy-gnuplot
+               #:ntutils)
   :serial t
   :components ((:file "package")
                (:file "plots/income-vs-expenses")

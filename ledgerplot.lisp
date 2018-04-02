@@ -7,9 +7,9 @@
 
 ;;; Global variables
 
-(defparameter clgp:*gnuplot-path* "gnuplot")
-(defparameter clgp:*tmp-dat-file* "/tmp/clgplot-tmp.dat")
-(defparameter clgp:*tmp-gp-file* "/tmp/clgplot-tmp.gp")
+;(defparameter clgp:*gnuplot-path* "gnuplot")
+;(defparameter clgp:*tmp-dat-file* "/tmp/clgplot-tmp.dat")
+;(defparameter clgp:*tmp-gp-file* "/tmp/clgplot-tmp.gp")
 
 ;;; Functions
 ; Nothing here for now
