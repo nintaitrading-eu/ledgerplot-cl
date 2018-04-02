@@ -26,14 +26,19 @@
     (*standard-output* :debug nil)
     (gp-setup
       :output output
-      :terminal '(pngcairo enhanced)
+      :terminal '(pngcairo enhanced font "Liberation Mono,10")
       :title "multiple histograms"
-      :key '(invert reverse left outside)
-      :key '(autotitle columnheader)
+      ;:key '(invert reverse left outside)
+      ;:key '(autotitle columnheader)
       :style '(data histogram)
-      :style '(histogram rowstacked)
-      :style '(fill solid border -1))
+      :style '(histogram clustered gap 1)
+      :style '(fill transparent solid noborder)
+      :xtics '(nomirror scale 0 center)
+      :ytics '(axis nomirror))
+      ;:ytics '("add ('' 0) scale 0"))
     (gp :set :size (list "800,600"))
+    (gp :set :border 1)
+    ;(gp :grid :ytics)
     (plot
      (lambda ()
        (loop for r in '((8.01 1 5 1) (8.02 3 5 1) (8.03 4 4 1) (8.04 3 4 1)
