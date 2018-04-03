@@ -24,7 +24,7 @@
 (defun multiple-histograms-plot (output)
   (eazy-gnuplot::with-plots
     (*standard-output* :debug nil)
-    (gp-setup
+    (eazy-gnuplot::gp-setup
       :output output
       :terminal '(pngcairo enhanced font "Liberation Mono,10")
       :title "multiple histograms"
@@ -32,18 +32,22 @@
       ;:key '(autotitle columnheader)
       :style '(data histogram)
       :style '(histogram clustered gap 1)
-      :style '(fill transparent solid noborder))
-      ;:ytics '("add ('' 0) scale 0"))
-    (gp :set :size (list "800,600"))
-    (gp :set :border 1)
-    (gp :set :xtics '(nomirror scale 0 center))
-    (gp :set :ytics '(axis nomirror))
-    ;(gp :grid :ytics)
-    (plot
-     (lambda ()
-       (loop for r in '((8.01 1 5 1) (8.02 3 5 1) (8.03 4 4 1) (8.04 3 4 1)
-                        (8.05 1 2 1))
-             do (format t "~&~{~^~a ~}" r)))
-     :using '(2 "xtic(1)") :title "col0" :using 2 :title "col1" :using 3 :title
-     "col2" :using 4 :title "col3"))
+      :style '(fill transparent solid noborder)
+      :ytics '("add ('' 0) scale 0"))
+    (eazy-gnuplot::gp :set :size (list "800,600"))
+    (eazy-gnuplot::gp :set :border 1)
+    (eazy-gnuplot::gp :set :xtics (list "nomirror scale 0 center"))
+    (eazy-gnuplot::gp :set :ytics (list "axis nomirror"))
+    ;(eazy-gnuplot::gp :grid :ytics)
+    (eazy-gnuplot::plot
+      ; TODO: Plot this command:
+      ; plot "ledgeroutput1.tmp" using 2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1)))) title "Income" linecolor rgb "light-green", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset -4,0.5 textcolor linestyle 0 notitle, "ledgeroutput2.tmp" using 2 title "Expenses" linecolor rgb "light-salmon", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset 0,0.5 textcolor linestyle 0 notitl
+      ;(lambda ()
+      ;  (loop for r in '(("2014-01-01" 513.1)
+      ;                   ("2015-01-01" -235.3)
+      ;                   ("2016-01-01" 600.4))
+      ;        do (format t "~&~{~^~a ~}" r)))
+      #P"/var/tmp/ledgeroutput1.tmp" :using '("2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))") :title "Income" '' :using '("0:2:2 with labels left rotate by 45 offset -4,0.5") :notitle
+      #P"/var/tmp/ledgeroutput2.tmp"
+      ))
   output)
