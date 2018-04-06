@@ -27,22 +27,21 @@
     (eazy-gnuplot::gp-setup
       :output output
       :terminal '(pngcairo enhanced font "Liberation Mono,10")
-      :title "multiple histograms"
-      ;:key '(invert reverse left outside)
-      ;:key '(autotitle columnheader)
+      :title "Income vs expenses per year"
       :style '(data histogram)
       :style '(histogram clustered gap 1)
       :style '(fill transparent solid noborder)
+      :xtics '("nomirror scale 0 center")
       ;:ytics '("add ('' 0) scale 0")
+      :ytics '("add ('' 0) axis nomirror scale 0")
+      :grid '(ytics)
+      :border 1
+      ;:size '("800,600")
       )
-    ;(eazy-gnuplot::gp :set :size (list "800,600"))
-    ;(eazy-gnuplot::gp :set :border 1)
-    ;(eazy-gnuplot::gp :set :xtics (list "nomirror scale 0 center"))
-    ;(eazy-gnuplot::gp :set :ytics (list "axis nomirror"))
     ;(eazy-gnuplot::gp :grid :ytics)
     (eazy-gnuplot::plot
       ; TODO: Plot this command:
-      ; plot "ledgeroutput1.tmp" using 2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1)))) title "Income" linecolor rgb "light-green", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset -4,0.5 textcolor linestyle 0 notitle, "ledgeroutput2.tmp" using 2 title "Expenses" linecolor rgb "light-salmon", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset 0,0.5 textcolor linestyle 0 notitl
+      ; plot "ledgeroutput1.tmp" using 2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1)))) title "Income" linecolor rgb "light-green", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset -4,0.5 textcolor linestyle 0 notitle, "ledgeroutput2.tmp" using 2 title "Expenses" linecolor rgb "light-salmon", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset 0,0.5 textcolor linestyle 0 notitle
       ;(lambda ()
       ;  (loop for r in '(("2014-01-01" 513.1)
       ;                   ("2015-01-01" -235.3)
@@ -50,13 +49,27 @@
       ;        do (format t "~&~{~^~a ~}" r)))
       ;#P"/var/tmp/ledgeroutput1.tmp"
       #P"ledgeroutput1.tmp"
-      ;:using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
-      :using '(1 3 "xtic(2)")
-      ;:title "Income"
-      :with '(boxes)
+      :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
+      ;:using '(1 2 "xtic(1)")
+      :title "Income"
+      :linecolor '(rgb "light-green")
+      
+      )
+    ;(eazy-gnuplot::plot
+      ;;; below is for the scheve headers
+      ;"''"
       ;:using '(0 2 2)
-      ;:with '(:labels left "rotate by 45" "offset -4,0.5")
+      ;:with '(labels left "rotate by 45" "offset -4,0.5")
+      ;:textcolor '("linestyle 0")
       ;:notitle
-      ;#P"/var/tmp/ledgeroutput2.tmp"
-      ))
+      ;;; above is for the scheve headers
+      ;#P"/var/tmp/ledgeroutput2.tmp"  
+    ;  )
+    (eazy-gnuplot::plot
+      #P"ledgeroutput2.tmp"
+      :using '(2)
+      :title "Expenses"
+      :linecolor '(rgb "light-salmon")
+      )
+    )
   output)
