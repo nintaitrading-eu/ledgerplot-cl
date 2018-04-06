@@ -33,11 +33,12 @@
       :style '(data histogram)
       :style '(histogram clustered gap 1)
       :style '(fill transparent solid noborder)
-      :ytics '("add ('' 0) scale 0"))
-    (eazy-gnuplot::gp :set :size (list "800,600"))
-    (eazy-gnuplot::gp :set :border 1)
-    (eazy-gnuplot::gp :set :xtics (list "nomirror scale 0 center"))
-    (eazy-gnuplot::gp :set :ytics (list "axis nomirror"))
+      ;:ytics '("add ('' 0) scale 0")
+      )
+    ;(eazy-gnuplot::gp :set :size (list "800,600"))
+    ;(eazy-gnuplot::gp :set :border 1)
+    ;(eazy-gnuplot::gp :set :xtics (list "nomirror scale 0 center"))
+    ;(eazy-gnuplot::gp :set :ytics (list "axis nomirror"))
     ;(eazy-gnuplot::gp :grid :ytics)
     (eazy-gnuplot::plot
       ; TODO: Plot this command:
@@ -47,12 +48,15 @@
       ;                   ("2015-01-01" -235.3)
       ;                   ("2016-01-01" 600.4))
       ;        do (format t "~&~{~^~a ~}" r)))
-      #P"/var/tmp/ledgeroutput1.tmp"
-      :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
-      :title "Income" "''"
-      :using '(0 2 2)
-      :with '(:labels left "rotate by 45" "offset -4,0.5")
-      :notitle
-      #P"/var/tmp/ledgeroutput2.tmp"
+      ;#P"/var/tmp/ledgeroutput1.tmp"
+      #P"ledgeroutput1.tmp"
+      ;:using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
+      :using '(1 3 "xtic(2)")
+      ;:title "Income"
+      :with '(boxes)
+      ;:using '(0 2 2)
+      ;:with '(:labels left "rotate by 45" "offset -4,0.5")
+      ;:notitle
+      ;#P"/var/tmp/ledgeroutput2.tmp"
       ))
   output)
