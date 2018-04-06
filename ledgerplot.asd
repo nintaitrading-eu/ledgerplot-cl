@@ -9,7 +9,7 @@
                #:inferior-shell
                #:eazy-gnuplot
                #:ntutils
-               #:ledger)
+               #:cl-ledger)
   :serial t
   :components ((:file "package")
                (:file "plots/income-vs-expenses")
