@@ -47,7 +47,12 @@
       ;                   ("2015-01-01" -235.3)
       ;                   ("2016-01-01" 600.4))
       ;        do (format t "~&~{~^~a ~}" r)))
-      #P"/var/tmp/ledgeroutput1.tmp" :using '("2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))") :title "Income" '' :using '("0:2:2 with labels left rotate by 45 offset -4,0.5") :notitle
+      #P"/var/tmp/ledgeroutput1.tmp"
+      :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
+      :title "Income" "''"
+      :using '(0 2 2)
+      :with '(:labels left "rotate by 45" "offset -4,0.5")
+      :notitle
       #P"/var/tmp/ledgeroutput2.tmp"
       ))
   output)
