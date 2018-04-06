@@ -50,22 +50,20 @@
       ;#P"/var/tmp/ledgeroutput1.tmp"
       #P"ledgeroutput1.tmp"
       :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
-      ;:using '(1 2 "xtic(1)")
       :title "Income"
       :linecolor '(rgb "light-green")
-      
       )
-    ;(eazy-gnuplot::plot
-      ;;; below is for the scheve headers
-      ;"''"
-      ;:using '(0 2 2)
-      ;:with '(labels left "rotate by 45" "offset -4,0.5")
-      ;:textcolor '("linestyle 0")
-      ;:notitle
-      ;;; above is for the scheve headers
-      ;#P"/var/tmp/ledgeroutput2.tmp"  
-    ;  )
     (eazy-gnuplot::plot
+      ;;; below is for the scheve headers
+      "''"
+      :using '(0 2 2)
+      :with '(labels left rotate by 45 offset "-4,0.5")
+      :textcolor
+      :linestyle 0
+      :notitle
+    )
+    (eazy-gnuplot::plot
+      ;#P"/var/tmp/ledgeroutput2.tmp"  
       #P"ledgeroutput2.tmp"
       :using '(2)
       :title "Expenses"
