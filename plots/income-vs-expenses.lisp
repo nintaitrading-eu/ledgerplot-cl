@@ -55,8 +55,8 @@
     )
     ; Income data
     (eazy-gnuplot::plot
-      ;#P"/var/tmp/ledgeroutput1.tmp"
-      #P"ledgeroutput1.tmp"
+      #P"/var/tmp/ledgeroutput1.tmp"
+      ;#P"ledgeroutput1.tmp"
       :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
       :title "Income"
       :linecolor '(rgb "light-green"))
@@ -69,8 +69,8 @@
       :notitle)
     ; Expenses data
     (eazy-gnuplot::plot
-      ;#P"/var/tmp/ledgeroutput2.tmp"  
-      #P"ledgeroutput2.tmp"
+      #P"/var/tmp/ledgeroutput2.tmp"
+      ;#P"ledgeroutput2.tmp"
       :using '(2)
       :title "Expenses"
       :linecolor '(rgb "light-salmon"))
