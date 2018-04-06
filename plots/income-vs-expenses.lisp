@@ -27,6 +27,7 @@
     (eazy-gnuplot::gp-setup
       :output output
       :terminal '(pngcairo enhanced font "Liberation Mono,10")
+      ;:terminal '(pngcairo enhanced font "Liberation Mono,10" size 800 #\, 600)
       :title "Income vs expenses per year"
       :style '(data histogram)
       :style '(histogram clustered gap 1)
@@ -36,25 +37,15 @@
       :ytics '("add ('' 0) axis nomirror scale 0")
       :grid '(ytics)
       :border 1
-      ;:size '("800,600")
-      )
-    ;(eazy-gnuplot::gp :grid :ytics)
+      :key '(bmargin center horizontal reverse noenhanced autotitles columnhead nobox)
+    )
     (eazy-gnuplot::plot
-      ; TODO: Plot this command:
-      ; plot "ledgeroutput1.tmp" using 2:xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1)))) title "Income" linecolor rgb "light-green", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset -4,0.5 textcolor linestyle 0 notitle, "ledgeroutput2.tmp" using 2 title "Expenses" linecolor rgb "light-salmon", '' using 0:2:2 with labels left font "Courier,8" rotate by 45 offset 0,0.5 textcolor linestyle 0 notitle
-      ;(lambda ()
-      ;  (loop for r in '(("2014-01-01" 513.1)
-      ;                   ("2015-01-01" -235.3)
-      ;                   ("2016-01-01" 600.4))
-      ;        do (format t "~&~{~^~a ~}" r)))
       ;#P"/var/tmp/ledgeroutput1.tmp"
       #P"ledgeroutput1.tmp"
       :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
       :title "Income"
-      :linecolor '(rgb "light-green")
-      )
+      :linecolor '(rgb "light-green"))
     (eazy-gnuplot::plot
-      ;;; below is for the scheve headers
       "''"
       :using '(0 2 2)
       :with '(labels left rotate by 45 offset "-4,0.5")
@@ -68,6 +59,14 @@
       :using '(2)
       :title "Expenses"
       :linecolor '(rgb "light-salmon")
-      )
+     )
+    (eazy-gnuplot::plot
+      "''"
+      :using '(0 2 2)
+      :with '(labels left rotate by 45 offset "0,0.5")
+      :textcolor
+      :linestyle 0
+      :notitle
+    )
     )
   output)
