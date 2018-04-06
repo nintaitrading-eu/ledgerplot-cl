@@ -5,3 +5,7 @@ https://www.sundialdreams.com/report-scripts-for-ledger-cli-with-gnuplot/
 
 yearly_income_vs_expenses works.
 Now fix the rest + use code in ledgerplot.
+
+== Depends on
+
+ledger
