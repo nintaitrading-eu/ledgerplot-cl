@@ -15,6 +15,12 @@
 
 (defun prepare-plot-income-vs-expenses ()
   "Prepare the data to use in the income-vs-expenses plot."
+  ; TODO: Execute commands:
+  ; ledger -f $FILE -j reg ^Income -M --collapse --plot-amount-format="%(format_date(date, \"%Y-%m-%d\")) %(abs(quantity(scrub(display_amount))))\n" > ledgeroutput1.tmp
+  ; ledger -f $FILE -j reg ^Expenses -M --collapse > ledgeroutput2.tmp
+  ; or better, what I put into the C version:
+  ; static char *f_cmd_income = "ledger -f %s --strict -j reg --real -X EUR -H ^income %s --collapse --plot-amount-format=\"%(format_date(date, \"%Y-%m-%d\")) %(abs(quantity(scrub(display_amount))))\n";
+  ; static char *f_cmd_expenses = "ledger -f %s --strict -j reg --real -X EUR -H ^expenses %s --collapse";
   (format t "Preparing data... TBD.~%"))
 
 (defun generate-plot-income-vs-expenses ()
@@ -55,8 +61,8 @@
     )
     ; Income data
     (eazy-gnuplot::plot
-      #P"/var/tmp/ledgeroutput1.tmp"
-      ;#P"ledgeroutput1.tmp"
+      ;#P"/var/tmp/ledgeroutput1.tmp"
+      #P"ledgeroutput1.tmp"
       :using '(2 "xticlabels(strftime('%Y', strptime('%Y-%m-%d', strcol(1))))")
       :title "Income"
       :linecolor '(rgb "light-green"))
@@ -69,8 +75,8 @@
       :notitle)
     ; Expenses data
     (eazy-gnuplot::plot
-      #P"/var/tmp/ledgeroutput2.tmp"
-      ;#P"ledgeroutput2.tmp"
+      ;#P"/var/tmp/ledgeroutput2.tmp"
+      #P"ledgeroutput2.tmp"
       :using '(2)
       :title "Expenses"
       :linecolor '(rgb "light-salmon"))
