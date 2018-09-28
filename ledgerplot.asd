@@ -8,8 +8,7 @@
                #:split-sequence
                #:inferior-shell
                #:eazy-gnuplot
-               #:ntutils
-               #:cl-ledger)
+               #:ntutils)
   :serial t
   :components ((:file "package")
                (:file "plots/income-vs-expenses")
